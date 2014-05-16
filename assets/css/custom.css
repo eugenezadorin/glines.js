@@ -1,0 +1,38 @@
+.jumbotron {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+.jumbotron .small {
+	margin-top: 40px;
+}
+
+.jumbotron .small p {
+	font-size: 14px;
+}
+
+.jumbotron .download {
+	margin-top: 60px;
+}
+
+.jumbotron .download p {
+	font-size: 14px;
+}
+
+.jumbotron .download p a {
+	margin-right: 10px;
+}
+
+h2 {
+	margin-top: 60px;
+}
+
+h4 {
+	margin-top: 30px;
+}
+
+.footer {
+	margin: 40px 0 60px 0;
+	padding-top: 40px;
+	border-top: 1px solid gray;
+}
