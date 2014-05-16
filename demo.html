@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>glines.js</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="assets/css/custom.css" rel="stylesheet" type="text/css" media="screen">
+		
+		<script type="text/javascript" src="lib/glines.js"></script>
+
+		<link href="assets/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
+		<link href="assets/js/prettify/desert.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="assets/js/prettify/prettify.js"></script>
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body onload="prettyPrint()">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>glines.js</h1>
+				<p>Simple plain-javascript tool for easy markup testing with guide lines</p>
+				<div class="small">
+					<p>You don't need jQuery to use glines.js.</p>
+					<p>glines.js is mostly browser console utility, so all following methods will work in console.</p>
+					<p>To get fast API-help just type glines.help() in browser console after glines.js was included.</p>
+				</div>
+				<div class="download">
+					<p><a href="http://s6-studio.ru/glines.js.zip" target="_blank" class="btn btn-success btn-lg">Download .zip</a> or get source: <a href="http://s6-studio.ru/glines.js" target="_blank">http://s6-studio.ru/glines.js</a></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Examples</h2>
+					<h4>Example 1</h4>
+					<p><button type="button" onclick="example1(); return false;" class="btn btn-primary">Add one vertical guide line</button></p>
+					<script type="text/javascript">
+						function example1() {
+							glines.addLine();
+						}
+					</script>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  function example1() {
+    glines.addLine();
+  }
+</pre>
+				</div>
+				<div class="col-md-6">
+					<p style="margin-top: 20px;"><strong>Tip</strong>: You can move guide lines with mouse.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4>Example 2</h4>
+					<p><button type="button" onclick="example2(); return false;" class="btn btn-primary">Add horizontal red one-pixel guide line</button></p>
+					<script type="text/javascript">
+						function example2() {
+							glines.addLine('h', {color: '#f00', size: '1px'});
+						}
+					</script>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  function example2() {
+    glines.addLine('h', {color: '#f00', size: '1px'});
+  }
+</pre>
+				</div>
+				<div class="col-md-6">
+					<p style="margin-top: 10px;"><strong>Tip</strong>: Single click on line makes it active (focused), so you also can move it using keyboard arrows.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4>Example 3</h4>
+					<p><button type="button" onclick="example3(); return false;" class="btn btn-primary">Remove all guide lines</button></p>
+					<script type="text/javascript">
+						function example3() {
+							glines.removeAll();
+						}
+					</script>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  function example3() {
+    glines.removeAll();
+  }
+</pre>
+				</div>
+				<div class="col-md-6">
+					<p style="margin-top: 20px;"><strong>Tip</strong>: If you want to remove one line, use double click on it.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>How to include</h2>
+					<p>If you want permanently include glines.js to your site (for example on your dev server), use standart code inside &lt;head&gt;&lt;/head&gt; tag:</p>
+
+<!--?prettify lang=html?-->
+<pre class="prettyprint">
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;script type="text/javascript" src="path/to/glines.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+  &lt;/html&gt;
+</pre>
+	
+					<p>If you want one-time including, there are two ways to get glines.js with browser console (type F12 to open):</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h4>jQuery way</h4>
+					<p>Type this code to your browser console:</p>
+
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  $.getScript('http://s6-studio.ru/glines.js');
+</pre>
+
+					<p>And then start using glines.js methods.</p>
+				</div>
+				<div class="col-md-6">
+					<h4>Plain-Javascript way</h4>
+					<p>A bit more code:</p>
+
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  var s = document.createElement('script'); 
+  s.src = 'http://s6-studio.ru/glines.js';
+  document.body.appendChild(s);
+</pre>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>API</h2>
+					<p>There are only 3 public methods:</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>method</th>
+								<th>description</th>
+								<th>examples</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>glines.addLine()</td>
+								<td>
+									<p>Adds single guide line.</p>
+									<strong>Parameters</strong><br>
+									<p><i>string</i> axis</p>
+									<p style="padding-left: 20px;">
+										Default value is "vertical".<br/>
+										Acceptable values: "vertical" or "horizontal".<br/>
+										You also can use short record: "v" or "h"
+									</p>
+
+									<br/>
+
+									<p><i>object</i> customStyle</p>
+									<p style="padding-left: 20px;">
+										Default value is empty object. This parameter is used to rewrite default style parameters.<br/>
+										You can use any DOM-style attributes to change line appearance.<br/>
+										Additionally this object supports 2 custom properties: color and size.</br>
+									</p>
+
+								</td>
+								<td>
+									<p>Adding vertical line with default appearance:</p>
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  glines.addLine();
+  glines.addLine('v'); // the same
+  glines.addLine('vertical'); // the same
+</pre>
+
+									<p><br/>Adding horizontal line with default appearance:</p>
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  glines.addLine('h');
+  glines.addLine('horizontal'); // the same
+</pre>
+
+									<p><br/>Try to change appearance:</p>
+<!--?prettify lang=javascript?-->
+<pre class="prettyprint">
+  glines.addLine('v', {color: 'red', size: '10px'});
+  glines.addLine('v', {backgroundColor: 'red', width: '10px'}); // the same
+</pre>
+									<p>Size is recommended property to change line thickness instead of width for vertical lines and height for horizontal lines.</p>
+								</td>
+							</tr>
+							<tr>
+								<td>glines.removeAll()</td>
+								<td>
+									<p>Removes all guide lines. Method has no parameters.</p>
+								</td>
+								<td>
+									<p>Remember that you can remove each line by double click on it.</p>
+								</td>
+							</tr>
+							<tr>
+								<td>glines.help()</td>
+								<td>
+									<p>Use this method to get fast API-info and examples in your browser console.</p>
+								</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Download</h2>
+					<p><a href="http://s6-studio.ru/glines.js.zip" target="_blank">http://s6-studio.ru/glines.js.zip</a> — demo + source code.</p>
+					<p><a href="http://s6-studio.ru/glines.js" target="_blank">http://s6-studio.ru/glines.js</a> — source code.</p>
+				</div>
+			</div>
+			<div class="row footer">
+				<div class="col-md-12">
+					<p>glines.js by Eugene Zadorin</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
